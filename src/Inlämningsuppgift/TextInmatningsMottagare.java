@@ -4,31 +4,28 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TextInmatningsMottagare {
-
-    private final Scanner scanner;    // Skapar en Scanner för att läsa in det du skriver.
-    private final TextRäknare räkna;   // Skapar en "räknare" som håller koll på antalet bokstäver och rader.
+    //Privata instansvariablar  som gör att dem har samma värde hela tiden och att det inte kan ändras.
+    private final Scanner scanner;    
+    private final TextRäknare räkna;  
 
     // Konstruktor för TextInmatningsMottagare-klassen.
     public TextInmatningsMottagare() {
-        scanner = new Scanner(System.in);  // Skapar en ny Scanner som "lyssnar" på det du skriver in.
-        räkna = new TextRäknare();         // Skapar en "räknare" för att hålla koll på antal bokstäver och rader.
+        scanner = new Scanner(System.in);  // En scanner som tar emot input ifrån användaren.
+        räkna = new TextRäknare();         // En "räknare" för att hålla koll på antal bokstäver och rader.
     }
 
-    /**
-     * Läser in det du skriver rad för rad tills du skriver "stopp".
-     * Räknar hur många bokstäver och rader du har skrivit.
-     */
+    //Metod för att läsa in text och initiera utifrån vad som skrivs i scanner av användare.
     public void läsaText() {
         System.out.println("Skriv in ett ord i taget. Om du vill sluta, skriv 'stopp'");
         boolean forsättLäsning = true;
-        ArrayList<String> listaAvOrd = new ArrayList<>();  // En lista där vi sparar de ord du skriver.
+        ArrayList<String> listaAvOrd = new ArrayList<>();  // En lista där vi sparar de ord användaren skriver.
 
-        while (forsättLäsning) {
+        while (forsättLäsning) { //forsättläsning körs så länge det är sant.
             String inmatatOrd = scanner.nextLine();  // Läser in det du skriver en rad i taget.
             if (inmatatOrd.equalsIgnoreCase("stopp")) {
-                forsättLäsning = false;  // Om du skriver "stopp", slutar den läsa.
+                forsättLäsning = false; // Då blir boolean forsättläsning falskt och då stannar programmet och INTE tar med ordet "stopp".
             } else {
-                listaAvOrd.add(inmatatOrd);  // Vi sparar de ord du skriver.
+                listaAvOrd.add(inmatatOrd);  // Vi sparar de ord som har matats in av användare
             }
         }
 
@@ -43,20 +40,12 @@ public class TextInmatningsMottagare {
         System.out.println("Antal bokstäver: " + räkna.hämtaBokstäver());
     }
 
-    /**
-     * Hämtar antalet bokstäver som har skrivits.
-     *
-     * @return Antal bokstäver.
-     */
+    // Metod för att hämta antal bokstäver.
     public int antalBokstäver() {
         return räkna.hämtaBokstäver();
     }
 
-    /**
-     * Hämtar antalet rader som har skrivits.
-     *
-     * @return Antal rader.
-     */
+   // Metod för att hämta antal rader.
     public int antalRader() {
         return räkna.hämtaRader();
     }
