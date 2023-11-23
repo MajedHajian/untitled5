@@ -13,19 +13,14 @@ public class TextRäknare {
         skaRäknaTecken = true;      // Initierar teckenräkning.
     }
 
-    /**
-     * Räknar hur många bokstäver det finns i ett ord.
-     * @param ord Ordet att räkna bokstäver i.
-     */
+   // Metod för att räkna bokstäver.
     public void tecken(String ord) {
         if (skaRäknaTecken) {
             antalBokstäver += ord.length();  // Lägger till antalet bokstäver i ordet till totalen.
         }
     }
 
-    /**
-     * Räknar en rad som har skrivits.
-     */
+    //Metod för att räkna en rad i taget.
     public void rad() {
         antalRader++;
     }
@@ -35,26 +30,17 @@ public class TextRäknare {
         skaRäknaTecken = false;
     }
 
-    /**
-     * Hämtar antalet bokstäver som har räknats.
-     * @return Antal bokstäver.
-     */
+    //Metod för att hämta antal bokstäver och returnera dem.
     public int hämtaBokstäver() {
         return antalBokstäver;
     }
 
-    /**
-     * Hämtar antalet rader som har räknats.
-     * @return Antal rader.
-     */
+   //Metod för att hämta antal rader och returnera dem
     public int hämtaRader() {
         return antalRader;
     }
 
-    /**
-     * Hämtar antalet tecken som har räknats.
-     * @return Antal tecken.
-     */
+    //Metod för att hämta tecken och returnera dem.
     public int hämtaTecken() {
         return antalBokstäver;
     }
